@@ -1,42 +1,50 @@
 # Market Reports
 
-Public archive of Daily Market Intelligence reports prepared for GitHub Pages and Medium import.
+## Medium import URL — configure this first
 
-## Publishing layout
+Set the URL below to the published `medium/` page for the report being imported. For example:
 
-Store every report under its report date. Do not use a `latest` directory.
+```text
+https://choudhary-s.github.io/market-reports/2026-09-11/broad-market/medium/
+```
+
+Use this pattern for subsequent reports:
+
+```text
+https://choudhary-s.github.io/market-reports/YYYY-MM-DD/REPORT-SLUG/medium/
+```
+
+`YYYY-MM-DD` is the report date and `REPORT-SLUG` is the report category, such as `broad-market`, `automobiles`, or `financial-services`. Keep the trailing slash: it ensures relative chart-image paths resolve correctly during Medium's import.
+
+## Repository layout
+
+This repository is a public archive of Daily Market Intelligence reports and their Medium-ready pages. Keep each report in its date and category directory; do not use a `latest` directory.
 
 ```text
 YYYY-MM-DD/
-├── index.html
-└── images/
-    └── chart files
+└── REPORT-SLUG/
+    ├── charts/          # source chart assets, if retained
+    ├── diagnostics.md   # report notes, if applicable
+    └── medium/
+        ├── index.html   # page imported into Medium
+        └── images/      # every image referenced by index.html
 ```
 
-For example:
-
-```text
-2026-09-11/
-├── index.html
-└── images/
-```
-
-The public report URL will be:
-
-```text
-https://choudhary-s.github.io/market-reports/YYYY-MM-DD/
-```
-
-Copy the Medium-ready static HTML to `YYYY-MM-DD/index.html` and copy every image it references to `YYYY-MM-DD/images/`. Image paths inside the HTML should be relative, such as `images/nifty50-price.png`.
+Before publishing, place the final static HTML in `medium/index.html`, copy all referenced images to `medium/images/`, and use relative paths in the HTML, for example `images/nifty50-price.png`. Open the GitHub Pages URL once and confirm that the page and every chart load before starting the Medium import.
 
 ## GitHub Pages
 
-Configure Pages to deploy from the `main` branch and the repository root (`/`).
+Configure GitHub Pages to deploy from the `main` branch and repository root (`/`). After pushing the report files, wait for the deployment to finish, then use the published `medium/` URL above—not a local file path or a GitHub file-view URL.
 
 ## Prepare a Medium draft with Codex
 
-In the Codex desktop app, replace the date in this prompt and run it:
+1. Update the configurable URL at the top of this README for the report you are about to import. Confirm it opens publicly and that its images are visible.
+2. In the Codex desktop app, open Chrome and use Medium's **Import a story** flow with that URL. Importing the public static page lets Medium create an editable draft while retaining the article structure and hosted chart images.
+3. Review the imported draft from top to bottom. Check the title, section order, explanatory text, chart order, chart visibility, captions, links, and spacing. Correct only import-related presentation issues, such as an unintended heading level, extra blank line, or broken image placement.
+4. Leave the completed draft open for review. Do not publish or schedule it, submit it to a publication, change the canonical URL, or change monetization settings.
+
+If you want Codex to perform the import, replace the URL in this prompt and run it:
 
 ```text
-Use @Chrome to open Medium and import https://choudhary-s.github.io/market-reports/YYYY-MM-DD/ as a new story. Verify the title, index order, explanatory text, and every chart image. Fix only formatting issues introduced by Medium. Stop with the completed draft open for my review. Do not publish, schedule, submit it to a publication, change the canonical URL, or change monetization settings.
+Use @Chrome to open Medium and import https://choudhary-s.github.io/market-reports/YYYY-MM-DD/REPORT-SLUG/medium/ as a new story. Verify the title, section order, explanatory text, chart order, captions, links, and every chart image. Fix only formatting issues introduced by Medium. Stop with the completed draft open for my review. Do not publish, schedule, submit it to a publication, change the canonical URL, or change monetization settings.
 ```
