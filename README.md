@@ -46,5 +46,16 @@ Configure GitHub Pages to deploy from the `main` branch and repository root (`/`
 If you want Codex to perform the import, replace the URL in this prompt and run it:
 
 ```text
-Use @Chrome to open Medium and import https://choudhary-s.github.io/market-reports/YYYY-MM-DD/REPORT-SLUG/medium/ as a new story. Verify the title, section order, explanatory text, chart order, captions, links, and every chart image. Fix only formatting issues introduced by Medium. Stop with the completed draft open for my review. Do not publish, schedule, submit it to a publication, change the canonical URL, or change monetization settings.
+Use @Chrome to open Medium and import this page as a new story:
+https://choudhary-s.github.io/market-reports/YYYY-MM-DD/REPORT-SLUG/medium/
+
+Verify the title, section order, explanatory text, chart order, captions, links, and every chart image.
+
+Upload every chart and other article image to Medium. Ensure each image is present, correctly ordered, and paired with the right caption.
+
+Fix only formatting issues introduced by Medium. Polish the imported draft so it is complete, professional, and ready for my review and publication.
+
+Stop with the completed draft open for my review.
+
+Do not publish, schedule, submit it to a publication, change the canonical URL, or change monetization settings.
 ```
